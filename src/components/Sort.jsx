@@ -1,4 +1,15 @@
+import React from "react";
+
 export default function Sort() {
+  const sortValues = ["популярности", "цене", "алфавиту"];
+  const [sortValue, setSortValue] = React.useState(0);
+  const [open, setOpen] = React.useState(false);
+  const sortName = sortValues[sortValue];
+  const selectSortValue = (i) => {
+    setSortValue(i);
+    setOpen(false);
+  };
+
   return (
     <div className="sort">
       <div className="sort__label">
@@ -15,15 +26,24 @@ export default function Sort() {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span>популярности</span>
+        <span onClick={() => setOpen(!open)}>{sortName}</span>
       </div>
-      <div className="sort__popup">
-        <ul>
-          <li className="active">популярности</li>
-          <li>цене</li>
-          <li>алфавиту</li>
-        </ul>
-      </div>
+
+      {open && (
+        <div className="sort__popup">
+          <ul>
+            {sortValues.map((sortName, index) => (
+              <li
+                key={index}
+                onClick={() => selectSortValue(index)}
+                className={sortValue === index ? "active" : ""}
+              >
+                {sortName}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

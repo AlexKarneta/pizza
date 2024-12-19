@@ -20,18 +20,13 @@ export default function Categories() {
       <ul>
         {categories.map((item, index) => (
           <li
+            key={index}
             onClick={() => selectCategory(index)}
             className={activeIndex === index ? "active" : ""}
           >
             {item}
           </li>
         ))}
-        {/* <li
-          onClick={() => selectCategory(0)}
-          className={activeIndex === 0 ? "active" : ""}
-        >
-          Все
-        </li> */}
       </ul>
     </div>
   );
