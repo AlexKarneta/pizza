@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Categories() {
-  const [activeIndex, setActiveIndex] = React.useState(2);
+  const [activeIndex, setActiveIndex] = React.useState(0);
   const selectCategory = (item) => {
     setActiveIndex(item);
   };
