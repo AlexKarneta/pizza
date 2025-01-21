@@ -5,10 +5,6 @@
   text-align: center;
   margin-bottom: 65px;
 
-  &:not(:nth-of-type(4n)) {
-    margin-right: 35px;
-  }
-
   &__image {
     width: 260px;
   }
@@ -19,7 +15,10 @@
     letter-spacing: 1%;
     margin-bottom: 20px;
   }
-
+  &-wrapper {
+    display: flex;
+    justify-content: center;
+  }
   &__selector {
     display: flex;
     background-color: #f3f3f3;
